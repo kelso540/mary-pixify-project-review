@@ -51,33 +51,40 @@ const imageSets = [
   ];
 
   /* ****ADDED CODE BELOW**** */
+
+  const values = {
+    par: Number(location.search.substring(1)),
+  };
   const selectors = {
     btnA: document.querySelector('.btnA'), 
     btnB: document.querySelector('.btnB'), 
     img: document.querySelector('.img'),
-  }
+  };
 
   const numbers = {
-    count: 1,
+    count: 0,
+  };
+
+  const setImg = ()=>{
+    selectors.img.src = imageSets[values.par].images[numbers.count];
   }
 
   const up = ()=>{  
-    if (numbers.count >= imageSets[0].images.length-1) {
+    if (numbers.count >= imageSets[values.par].images.length-1) {
       numbers.count = numbers.count; 
     } else {
       numbers.count++;
-      selectors.img.src = imageSets[0].images[numbers.count];
+      selectors.img.src = imageSets[values.par].images[numbers.count];
     }
-  }
+  };
 
   const dwn = ()=>{
     if (numbers.count <= 0) {
       numbers.count = numbers.count; 
     } else {
       numbers.count--;
-      selectors.img.src = imageSets[0].images[numbers.count];
+      selectors.img.src = imageSets[values.par].images[numbers.count];
     }
-  }
+  }; 
 
-  selectors.btnA.addEventListener('click', dwn);
-  selectors.btnB.addEventListener('click', up); 
+  setImg();
