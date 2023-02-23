@@ -51,7 +51,6 @@ const imageSets = [
   ];
 
   /* ****ADDED CODE BELOW**** */
-
   const selectors = {
     btnA: document.querySelector('.btnA'), 
     btnB: document.querySelector('.btnB'), 
